@@ -1,0 +1,6 @@
+Enter Text to Generate Audio,Enter Filename (without .mp3),output,timestamp
+"In a land far away there lived a girl named Sarah. She had long, silky hair.",Sarah,Exception occurred: 'message',2025-04-26 21:04:06.941030
+"Once upon a time, in a land far away there lived a girl named, Sarah. She had long, black, silky hair. ",Sarah,Audio generated successfully! (Saved as: Sarah.mp3),2025-04-26 21:21:25.513885
+"The old clock struck midnight, but Sam was still awake, staring at the stars.
+A faint knock echoed through the empty house.
+When he opened the door, no one was there — just a letter that read, ""Follow the light.""",light,Audio generated successfully! (Saved as: light.mp3),2025-04-26 21:23:21.565972
