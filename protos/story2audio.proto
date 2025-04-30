@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package story2audio;
+
+service StoryToAudio {
+  rpc GenerateAudio (AudioRequest) returns (AudioResponse);
+}
+
+message AudioRequest {
+  string text = 1;
+  string filename = 2;
+}
+
+message AudioResponse {
+  string status = 1;
+  string message = 2;
+  string file_path = 3;
+}
