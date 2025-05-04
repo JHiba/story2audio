@@ -6,7 +6,7 @@ from app.grpc_generated import story2audio_pb2, story2audio_pb2_grpc
 class StoryToAudioServicer(story2audio_pb2_grpc.StoryToAudioServicer):
     def __init__(self):
         self.tts_engine = TextToSpeechEngine()
-
+    #/generate endpoint is represented by the GenerateAudio method
     def GenerateAudio(self, request, context):
         try:
             # Validate input
