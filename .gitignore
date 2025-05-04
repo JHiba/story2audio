@@ -1,5 +1,17 @@
+# Audio files
 *.mp3
 *.wav
+
+# Python bytecode
 *.pyc
 __pycache__/
-venv39/
+
+# Virtual environment
+venv_frontend/
+
+# IDE files (VS Code, etc.)
+.vscode/
+wheels/
+# Other unnecessary files
+*.log
+

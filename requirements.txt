@@ -1,6 +1,16 @@
-fastapi
-uvicorn
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+# Core gRPC
+grpcio
+grpcio-tools
+
+# TTS and dependencies
+TTS==0.22.0
+torch==2.2.2+cpu
+torchaudio==2.2.2+cpu
+numpy
+scipy
+
+# UI
+gradio
 pydantic
-pyttsx3
-requests
-streamlit

@@ -1,15 +1,24 @@
-FROM python:3.12-slim
-#working directory
-WORKDIR /app 
+FROM python:3.10-slim
 
-# Copy the current directory contents into the container at /app
-COPY . /app
+# Avoid Python writing .pyc files and ensure output is shown immediately
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
-# Install any needed packages specified in requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+# Set working directory inside the container
+WORKDIR /app
 
-# Make port 8000 available to the world outside this container
-EXPOSE 8000
+# Copy local wheels and requirements
+COPY wheels/ ./wheels/
+COPY requirements.txt .
 
-# Run the application
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Install only from local wheels (offline CPU-only build)
+RUN pip install --no-index --find-links=./wheels -r requirements.txt
+
+# Copy the rest of your source code
+COPY . .
+
+# Expose gRPC port
+EXPOSE 50051
+
+# Run gRPC server
+CMD ["python", "-m", "app.grpc_server"]

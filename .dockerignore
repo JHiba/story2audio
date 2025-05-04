@@ -1,0 +1,37 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv/
+venv*/
+.env/
+.venv/
+
+# Logs and outputs
+*.log
+*.mp3
+*.wav
+*.ogg
+*.flac
+
+# Dev-only folders
+tests/
+frontend/
+.gradio/
+flagged/
+wheels/
+
+grpc_server.py
+grpc_client.py
+
+grpc_main.py 
+# Checkpoints and models
+*.pth
+*.pt
+*.ckpt
+Sarah2*
+
+# Ignore VS Code or other IDE stuff
+.vscode/
+*.swp

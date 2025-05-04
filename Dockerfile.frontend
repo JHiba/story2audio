@@ -1,0 +1,22 @@
+##FRONTEND'S .dockerignore
+# Use official Python image
+FROM python:3.10-slim
+
+# Set working directory
+WORKDIR /app
+
+# Copy only essential files
+COPY frontend_requirements.txt ./
+
+# Install dependencies
+RUN pip install --no-cache-dir -r frontend_requirements.txt
+
+# Copy the application code
+COPY app/ ./app/
+COPY output/ ./output/
+
+# Expose Gradio port
+EXPOSE 7860
+
+# Run the frontend script
+CMD ["python", "-m", "app.grpc_frontend"]
