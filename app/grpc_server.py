@@ -11,7 +11,7 @@ class StoryToAudioServicer(story2audio_pb2_grpc.StoryToAudioServicer):
         try:
             # Validate input
             if not request.text.strip():
-                context.set_code(grpc.StatusCode.INVALID_ARGUMENT)
+                context.set_code(grpc.StatusCode.INVALID_ARGUMENT)##error handling
                 context.set_details("Text input is empty.")
                 return story2audio_pb2.AudioResponse(
                     status="FAILURE",
@@ -20,7 +20,7 @@ class StoryToAudioServicer(story2audio_pb2_grpc.StoryToAudioServicer):
                 )
 
             output_file = self.tts_engine.text_to_audio(request.text, request.filename)
-
+            #JSON-like responses
             return story2audio_pb2.AudioResponse(
                 status="SUCCESS",
                 message="Audio generated successfully.",
@@ -35,8 +35,8 @@ class StoryToAudioServicer(story2audio_pb2_grpc.StoryToAudioServicer):
                 file_path=""
             )
 
-def serve():
-    server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
+def serve():                              ##asynchronus handling to handle concurrent requests
+    server = grpc.server(futures.ThreadPoolExecutor(max_workers=10)) 
     story2audio_pb2_grpc.add_StoryToAudioServicer_to_server(StoryToAudioServicer(), server)
     server.add_insecure_port('[::]:50051')
     print("gRPC Server started on port 50051")

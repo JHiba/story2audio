@@ -1,3 +1,5 @@
+#The grpc_server.py file runs the gRPC server, 
+# and grpc_client.py calls the service to generate the audio file.
 import grpc
 from app.grpc_generated import story2audio_pb2, story2audio_pb2_grpc
 
